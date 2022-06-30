@@ -1,0 +1,11 @@
+<aura:component >
+    
+        <!-- NEW EXPENSE FORM -->
+    <lightning:layout >
+        <lightning:layoutItem padding="around-small" size="6">
+            
+            <c:expenseForm/>
+        </lightning:layoutItem>
+    </lightning:layout>
+	
+</aura:component>

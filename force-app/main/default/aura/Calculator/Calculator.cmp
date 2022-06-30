@@ -1,0 +1,19 @@
+<aura:component>
+    <aura:attribute name="Input1" type="Integer" description="for the first value"/>
+    <aura:attribute name="Input2" type="Integer" description="for the first value"/>
+     <aura:attribute name="output" type="Integer" description="for the output"/>
+    
+    <lightning:input value="{!v.Input1}" type="Number" label="please enter first value"/>
+    <lightning:input value="{!v.Input2}" type="Number" label="please enter first value"/>
+    
+    <lightning:button value="cmp" label="Add" onclick="{!c.doAdd}" variant="success"/>
+    <lightning:button value="cmp" label="Sub" onclick="{!c.doSub}" variant="destructive"/>
+    <lightning:button value="cmp" label="Mul" onclick="{!c.doMul}" variant="brand"/>
+    <lightning:button value="cmp" label="Div" onclick="{!c.doDiv}" variant="neutral"/>
+    
+    <lightning:layout >
+    <lightning:layoutItem padding="around-small" >
+        {!v.output}
+    </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

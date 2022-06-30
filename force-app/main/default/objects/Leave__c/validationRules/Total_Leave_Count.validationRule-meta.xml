@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Leave_Count</fullName>
+    <active>true</active>
+    <errorConditionFormula>Sick_Leave_Taken__c  +  Annual_Leave_Taken__c  +  Casual_Leave_Taken__c &gt;30</errorConditionFormula>
+    <errorMessage>sorry, you have exceeded the total number of leave</errorMessage>
+</ValidationRule>

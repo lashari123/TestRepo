@@ -1,0 +1,32 @@
+<aura:component Controller="AccountCurd" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable" access="global" >	 
+ 
+
+	<aura:attribute access="PUBLIC" name="manageView" type="Object[]"/>    
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+<div class="slds">
+	<table data-reactroot="" class="slds-table slds-table_bordered slds-table_cell-buffer">
+      <thead>
+        <tr class="slds-text-title_caps">
+          <th scope="col">
+            <div class="slds-truncate" title="Account Name">Account Name</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Industry">Industry</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Phone">Phone</div>
+          </th> 
+           <th scope="col">
+            <div class="slds-truncate" title="Action"></div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+          <aura:iteration items="{!v.manageView}" var="row">
+               <c:AccountCurdCmpRow view="{!row}"/>
+          </aura:iteration>                
+      </tbody>
+    </table>    
+</div>
+</aura:component>

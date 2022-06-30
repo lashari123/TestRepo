@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable" access="global" >	 
+    <aura:attribute access="PUBLIC" name="view" type="Object"/>    
+    <tr>
+        <td  data-label="Account Name">
+            <div class="slds-truncate" ><a href="javascript:void(0);">{!v.view.Name}</a></div>
+        </td>
+        <td data-label="Industry">
+            <div class="slds-truncate" >{!v.view.Industry}</div>
+        </td>
+        <td data-label="Close Date">
+            <div class="slds-truncate" >{!v.view.Phone}</div>
+        </td>
+        <td data-label="edit/delt">
+            <div class="slds-truncate" >
+                <button onclick="{!c.deleteRecord}" id="{!view.Id}" class="slds-button slds-button_icon" title="Edit Record">
+                    <lightning:icon iconName="action:edit" size="xx-small" alternativeText="Edit"/>
+                    <span class="slds-assistive-text">Edit</span>
+                </button>
+                <button onclick="{!c.callDeleteRecord}"  id="{!view.Id}" class="slds-button slds-button_icon" title="Delete Record">
+                    <lightning:icon iconName="action:delete" size="xx-small" alternativeText="Delete"/>
+                    <span class="slds-assistive-text">Delete</span>
+                </button>
+                
+            </div>
+        </td>        
+    </tr>
+</aura:component>

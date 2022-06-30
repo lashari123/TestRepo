@@ -1,0 +1,21 @@
+<aura:component >
+    <lightning:layout class="slds-page-header">
+        <lightning:icon iconName="action:goal" size="large" />
+     <h1 class="slds-text-heading--medium">
+   campingList
+    </h1>
+        
+    
+        
+    </lightning:layout>
+    <!--
+    <aura:attribute name="message" type="String"/>
+    <p>  {!v.message} </p> 
+    
+    <lightning:button  value="hi what can i do for you " label="click me" onclick="{!c.handleClick}"/> -->
+    
+   
+   
+    
+    
+</aura:component>

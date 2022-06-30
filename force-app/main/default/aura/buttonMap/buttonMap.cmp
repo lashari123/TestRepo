@@ -1,0 +1,23 @@
+<aura:component >
+
+        <aura:attribute name="user" type="Map"
+          default="{
+            'id': 99,
+            'firstName': 'Eunice',
+            'lastName': 'Gomez'}" />
+    
+    <p>First Name: {!v.user.firstName}</p>     
+    <lightning:button onclick="{!c.deepSet}" label="Deep Set" />  
+
+       <!--  <aura:attribute name="user" type="Map"
+                    default="{
+                             'id':99,
+                             'firstName':' Irfan',
+                             'lastName'  :'lashari',
+                             }" />
+                    
+                    <p> Firstname: {!v.user.firstName} </p>
+                    
+    <aura:button onclick="{!c.deepSet}" label="click me"/> -->
+    
+</aura:component>

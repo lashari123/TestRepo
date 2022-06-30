@@ -1,0 +1,4 @@
+<aura:component >
+	 <aura:attribute name="prd" type="String"/>
+     <p> {!v.items}</p>
+</aura:component>

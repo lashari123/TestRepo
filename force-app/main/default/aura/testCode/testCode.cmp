@@ -1,0 +1,56 @@
+<!--<aura:component>
+    <aura:attribute name="buttonLabel" type="String"/>
+    <lightning:button aura:id="button1" label="Button 1"/> 
+    {!v.buttonLabel}
+    <lightning:button label="Got!" onclick="{!c.getLabel}"/>
+</aura:component>-->
+<!--
+  <aura:component>
+    <aura:attribute name="whom" type="String" default="kashmala" access="public"/>
+    <aura:attribute name="age" type="Integer" default="24" access="private"/>
+    <aura:attribute name="color" type="String[]" default="{red,blue,green,yellow}" access="private"/>
+     <aura:attribute name="colorList" type="List" default="{red,blue,green,yellow}" access="private"/>
+     <aura:attribute name="colorSet" type="Set" default="{'red','blue','green','yellow'}" access="private"/>
+    
+    <lightning:input aura:id="getInput" label="age"/>
+    {!v.whom},age:{!v.age},color:{!v.color[1]}<br/>
+    {!v.colorList[2]}, {!v.colorSet[0]}
+    <lightning:button value="component Method" label="click me" onclick="{!c.doclick}"/>
+</aura:component> -->
+
+
+<aura:component>
+    <aura:attribute name="condition" default="false" type="Boolean"/>
+    <aura:attribute name="iteration" default="['red','green','yellow','blue']" type="List"/>
+    <aura:attribute name="mapvar" type="List"/>
+    <aura:if isTrue="{!v.condition}">
+        have a nice day!
+        <aura:set attribute="else">
+          <lightning:button value="" label="Calculator" onclick="{!c.onclickhandler}"/> 
+        </aura:set>
+     
+    </aura:if>
+
+    <aura:if isTrue="{!v.condition}">
+        <c:Calculator/>
+      <!--  <aura:set attribute="else">
+        {return null}
+        </aura:set> -->
+    </aura:if>
+    
+    <aura:iteration items="{!v.iteration}" var="loop">
+        <br/>{!loop} 
+    	
+    </aura:iteration>
+    
+   
+    <aura:iteration items="{!v.mapvar}" var="map">
+    
+        key:- {!map.key} and value:- {!map.value} <br/>
+    </aura:iteration>
+     <lightning:button label="docreate map" onclick="{!c.CreateMap}"/>
+        
+    
+ 
+
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component >
+    
+    <aura:attribute name="wholeNumber" type="integer" access="public"/>
+    <aura:attribute name="percentage" type="integer"  access="public"/>
+    <div>
+        <lightning:input type="number" value="{!v.wholeNumber}"  placeholder="wholeNumber" label=" enter a number"/>
+        
+        <lightning:input type="number" value="{!v.percentage}"  placeholder="percentage" label=" enter a number"/>
+        {!v.wholeNumber} <br/>
+        {!v.percentage}<br/>
+        
+        {!mult(v.wholeNumber,v.percentage)}
+    </div>
+    
+	
+</aura:component>

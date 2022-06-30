@@ -1,0 +1,8 @@
+<aura:component >
+	
+    <aura:attribute name="accName" type="String"/>
+    <aura:registerEvent name="InputCarryEvent" type="c:InputCarryEvent"/>
+    <lightning:input type="text" value="{!v.accName}" label="name" onchange="{!c.handleChange}"/>
+    
+    
+</aura:component>

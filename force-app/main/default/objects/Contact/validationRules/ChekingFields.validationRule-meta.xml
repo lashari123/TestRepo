@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChekingFields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( AccountId )),
+TEXT( Reference__c ) &lt;&gt; TEXT( Account.Reference__c )
+)</errorConditionFormula>
+    <errorMessage>Fields are not same</errorMessage>
+</ValidationRule>

@@ -1,0 +1,53 @@
+<aura:component controller="ControllerContact">
+    <aura:attribute name="conlist" type="list"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:button label="save" onclick="{!c.handlerSave}" /> 
+    <aura:attribute name="message" type="String"/>
+    <div class="Info">
+        {!v.message}
+    
+    </div>
+    <table  class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <tr>
+              <th>
+              S:no
+            </th>
+              <th>
+              FirstName
+            </th>
+              <th>
+              LastName
+            </th>
+            <th>
+             Email
+            </th>
+        </tr>
+        
+        <aura:iteration items="{!v.conlist}" var="con" indexVar="index">
+            <tr>
+                 <td>{!index+1}</td>
+                
+                <td ><lightning:input type="text"  label="First Name" value="{!con.LastName}"  /> </td>
+                
+                <td><lightning:input type="text"  label="Last Name" value="{!con.Title}"  /></td>
+                    <td><lightning:input type="Email"  label="Last Name" value="{!con.Email}"  /></td>
+               
+                <aura:if isTrue="{!index==0}">
+                <td><lightning:button onclick="{!c.AddRow}" label="Add"/></td>
+                </aura:if>
+                <aura:if isTrue="{!index>0}">
+                <td id="{!index}">
+                    <lightning:button label="Delete" variant="Destructive" onclick="{!c.handleclick}"/>
+                </td>
+                    </aura:if>
+                
+            </tr>
+            
+        </aura:iteration>
+        
+      
+    </table>
+    
+	
+</aura:component>

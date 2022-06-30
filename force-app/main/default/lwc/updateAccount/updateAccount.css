@@ -1,0 +1,7 @@
+.THIS.slds-box {
+    border: 4px solid blue;
+    background: darkolivegreen;
+}
+.THIS .slds-theme_backgroundColor-lightblue {
+    background-color: lightblue;
+}

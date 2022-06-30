@@ -1,0 +1,60 @@
+<aura:component >
+	
+    <aura:registerEvent name="addItem" type="c:addItemEvent"/>
+      <aura:attribute name="newItem" type="Camping_Item__c"
+                        default="['sobjectType':'Camping_Item__c',
+                                 'Quantity__c':1,
+                                 'Price__c':0,
+                                 'Packed__c:false'
+                                 ]"/> 
+      <form  class="slds-form--stacked">
+            <lightning:input aura:id="newcampingform"
+                             label="Name"
+                             required="true"
+                             name="itemname"
+                             value="{!v.newItem.Name}"
+                             messageWhenValueMissing=" you need to fill the Name"
+                             />
+            
+         
+               <lightning:input aura:id="newcampingform"
+                             label="Quantity"
+                             required="true"
+                                type="number"
+                                min="1"
+                                step="1"
+                             name="itemquantity"
+                             value="{!v.newItem.Quantity__c}"
+                             messageWhenValueMissing=" you need to fill the quantity"
+                             />
+                  <lightning:input aura:id="newcampingform"
+                             label="Price"
+                             name="itemprice"
+                              required="true"
+                                type="number"
+                                   formatter="currency"
+                                step="1"
+                                min="1"
+                             value="{!v.newItem.Price__c}"
+                             messageWhenValueMissing=" you need to fill the Price"
+                             />
+               <lightning:input type="checkbox" aura:id="newcampingform"
+                             label="Packed"
+                                checked="{!v.newItem.Packed__c}"
+                             name="itempacked"
+                             value="{!v.newItem.Packed__c}"
+                             messageWhenValueMissing=" you need to check packed"
+                             />
+               <lightning:button aura:id="newcampingform"
+                             class="slds-m-top--medium"
+                             name="Create Item"
+                             value=""
+                        
+                             variant="brand"  
+                             onclick="{!c.clickCreateItem}"    
+                             />
+        
+        </form>
+           
+    
+</aura:component>
