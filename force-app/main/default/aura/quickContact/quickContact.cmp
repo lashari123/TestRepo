@@ -1,0 +1,14 @@
+<aura:component >
+	<aura:attribute name="contactName" type="Contact" default="{
+                                                               sobjectName:'Contact',
+                                                                FirstName:'',
+                                                                LastName:'',
+                                                                Email:'',
+                                                                Phone:''                                          
+                                                                       }"/>
+    <lightning:input type="text" value="{!v.contactName}" label="FirstName"/>
+     <lightning:input type="text" value="{!v.contactName}" label="LastName"/>
+     <lightning:input type="email" value="{!v.contactName}" label="Email"/>
+     <lightning:input type="number" value="{!v.contactName}" label="Phone"/>
+       <lightning:button  onclick="{}" label="create contact" variant="brand"/>
+</aura:component>

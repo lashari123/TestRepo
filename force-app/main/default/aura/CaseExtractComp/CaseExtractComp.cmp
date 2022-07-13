@@ -1,0 +1,111 @@
+<aura:component controller="caseExtractCompController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="navigateParameter" type="string" default="initialLoad"/>
+    <aura:attribute name="pageNumber" type="integer" />
+    <aura:attribute name="CaseList" type="list" />
+    <aura:attribute name="caseListPaginateWise" type="list" />
+    <aura:attribute name="totalRecords" type="integer" />
+    <aura:attribute name="lastPageNumber" type="integer" />
+    <aura:attribute name="finalListToAdd" type="list" />
+    <aura:attribute name="statusValueSelected" type="String" default="Working"/>
+    <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+        <lightning:select name="select" label="Select Case Status" onchange="{!c.handleStatusChange}" value="{!v.statusValueSelected}">
+        <option value="Working">Working</option>
+        <option value="Escalated">Escalated</option>
+        <option value="Closed">Closed</option>
+    </lightning:select>
+    </div>
+    <div class="slds-box slds-theme_shade">
+    <div >
+        <strong>Showing Results for status :</strong><b>{!v.statusValueSelected}</b>
+    </div>
+    </div>
+    <div class="slds-box slds-theme_shade">
+ <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+  <thead>
+    <tr >
+      <div class="slds-form-element">
+          <div class="slds-form-element_control">
+            <label class="slds-checkbox">
+                <ui:inputCheckbox change="{!c.selectAllORDeselectAll}"/>
+              <span class="slds-checkbox_faux"/>
+              <span class="slds-form-element_label"/>
+              </label>
+          </div>
+        </div>
+      <th class="" scope="col">
+        <div class="slds-truncate" title="Case Number">Case Number</div>
+      </th>
+      <th class="" scope="col">
+        <div class="slds-truncate" title="Status">Status</div>
+      </th>
+      <th class="" scope="col">
+        <div class="slds-truncate" title="OwnerName">Owner Name</div>
+      </th>
+        <th class="" scope="col">
+        <div class="slds-truncate" title="AccountName">Account Name</div>
+      </th>
+        <th class="" scope="col">
+        <div class="slds-truncate" title="Origin">Origin</div>
+      </th>
+        <th class="" scope="col">
+        <div class="slds-truncate" title="Priority">Priority</div>
+      </th>
+         <th class="" scope="col">
+        <div class="slds-truncate" title="Related object Field in Report">Related object Field</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+      <aura:iteration items="{!v.caseListPaginateWise}" var="a">
+    <tr >
+      <th  scope="row">
+       <div class="slds-form-element">
+          <div class="slds-form-element_control">
+            <label class="slds-checkbox">
+                <ui:inputCheckbox value="{!a.check}"/>
+                <span class="slds-checkbox_faux"/>
+              <span class="slds-form-element_label"/>
+            </label>
+          </div>
+        </div>
+      </th>
+     <th  scope="row">
+        {!a.obj.CaseNumber}
+      </th>
+        <th  scope="row">
+        {!a.obj.Status}
+      </th>
+        <th  scope="row">
+        {!a.obj.Owner.Name}
+      </th>
+        <th  scope="row">
+        {!a.obj.Account.Name}
+      </th>
+        <th  scope="row">
+        {!a.obj.Origin}
+      </th>
+        <th  scope="row">
+        {!a.obj.Priority}
+      </th>
+        <th  scope="row">
+        {!a.obj.Testobject1__r.Status__c}
+      </th>
+    </tr>
+     </aura:iteration> 
+  </tbody>
+</table>
+    <aura:if isTrue="{!(v.pageNumber!=v.lastPageNumber)}">
+     <lightning:button label="Next" onclick="{!c.goToNext}" class="slds-button slds-button_brand"/>
+    </aura:if>
+     <aura:if isTrue="{!v.pageNumber!=1}">
+     <lightning:button label="Previous" onclick="{!c.goToPrevious}" class="slds-button slds-button_brand"/>
+     </aura:if>
+    <lightning:button label="Download Cases" onclick="{!c.downloadSelectedCase}" class="slds-button slds-button_brand"/>
+     <div class="slds-align_absolute-center">
+         <b>Displaying Page {!v.pageNumber} of {!v.lastPageNumber}</b>
+     </div>
+   
+</div>
+
+</aura:component>

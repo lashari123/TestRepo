@@ -1,0 +1,43 @@
+<template>
+    <lightning-card variant="narrow" icon-name="standard:opportunity">
+        <h1 slot="title">conditional rendering</h1>
+        <h1>show text</h1>
+     <button class="slds-button slds-button_success" onclick={handleChange}> click to show</button>
+<template if:true={showText.result}>
+    <h1>hy! are you there</h1>
+</template>
+  
+<br/>
+
+<h1>toggale button</h1>
+<button class="slds-button slds-button_success" onclick={handleToggale}> toggale button</button>
+<template if:true={toggaleText}>
+<h1>hy! are you there</h1>
+</template>
+<!-- usnig getter  -->
+<div slds-m-around_large>
+    <button class="slds-button slds-button_success" onclick={hadleStatus}> ON</button>
+
+    <button class="slds-button slds-button_destructive" onclick={hadleStatus}> OFF</button>
+
+
+</div>
+
+<div slds-m-around_xx-large> 
+
+    <h1> {status}</h1>
+
+</div>
+
+      <!-- Event triggers-->  
+      <div slds-m-around_xx-large> 
+
+     <lightning-input value={showtext} name="showtext" lable=" input value showtext" onkeyup={handleInput}> </lightning-input>
+    
+    </div>
+    <div dlds-m-around_xx-large if:true={checkText}>
+
+<h1> hello danyal</h1>
+    </div>
+    </lightning-card>
+</template>

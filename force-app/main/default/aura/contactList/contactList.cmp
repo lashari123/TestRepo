@@ -1,0 +1,18 @@
+<aura:component controller="ContactList"
+   implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSobjectName" access="global" >
+    
+    <aura:attribute name="listcontact" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <c:quickContact/>
+    <aura:iteration items="{!v.listcontact}" var="map">
+        <lightning:card title="{!map.Name}" footer="{!map.Email}"
+                        iconName="standerd:contact">
+            
+            <lightning:button label="view details" onclick="{!c.redirect}" value="{!map.Id}" variant="brand"/>
+        <br/><br/>{!map.Phone} <br/> 
+    </lightning:card>
+    </aura:iteration>
+                                                     
+                                                                                                   
+	
+</aura:component>

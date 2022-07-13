@@ -1,0 +1,54 @@
+<!--
+       <ol>
+    <li>
+       Bug Spray 
+      </li>
+         <li>
+      Bear Repellant
+      </li>
+         <li>
+      Goat Food 
+      </li>
+    </ol>
+    <aura:attribute name="customMessage" type="String"/>
+    <p> {!v.customMessage} </p>
+    <aura:attribute name="expense" type="Expense__c"/>
+    <p>Amount:
+     <lightning:formattedNumber value="{!v.expense.Amount__c}" style="currency"/>
+    </p>
+    
+    <p>Client:{!v.expense.Client__c}
+    </p>
+    
+    <p>
+    <lightning:input type="toggle"
+                     label="Reimbursed"
+                     name="Reimbursed"
+                     checked="{!v.expense.Reimbursed}"/>
+    </p> -->
+<aura:component controller="CampingListController">
+        <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+   <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem}" />
+     <aura:attribute name="items" type="Camping_Item__c[]" /> 
+   
+    <lightning:layout>
+   
+    <lightning:layoutItem padding="around-small"  size="6">
+        <legend id="newcampingform" class="slds-text-heading-small slds-p-vertical--medium">
+            Camping List
+        </legend>
+        <div aria-labelledby="newcampingform">
+            <fieldset class="slds-box slds-theme--default slds-container--small">
+            
+                <c:campingListForm/>       
+                     </fieldset>
+            </div>
+        <aura:iteration items="{!v.items}" var="cmp">
+        <c:campingListItem item="{!cmp}"/>
+        </aura:iteration>
+            
+        </lightning:layoutItem>
+    </lightning:layout>
+   
+    
+</aura:component>

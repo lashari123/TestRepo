@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box slds-theme_default slds-theme_background-lightblue">
+    <lightning-quick-action-panel header = "Edit Fields Action">
+        <lightning-record-form record-id={recordId} object-api-name={objectApiName} columns="2" mode="edit" fields={arrayFields} onsuccess={handleSuccess}>
+        <lightning-messages></lightning-messages>
+        </lightning-record-form>
+    </lightning-quick-action-panel>
+    <lightning-card title="Contact Records">
+        <lightning-datatable if:true={contacts.data}
+            key-field="id"
+            data={contacts.data}
+            columns={columns}>
+        </lightning-datatable>
+    </lightning-card>  
+</div>
+</template>
