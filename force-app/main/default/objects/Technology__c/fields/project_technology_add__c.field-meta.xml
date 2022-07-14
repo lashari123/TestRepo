@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>project_technology_add__c</fullName>
+    <description>roll-up summary for add</description>
+    <externalId>false</externalId>
+    <label>project technology add</label>
+    <summaryForeignKey>Project_Technology__c.Technology__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

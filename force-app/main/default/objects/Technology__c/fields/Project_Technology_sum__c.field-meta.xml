@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Technology_sum__c</fullName>
+    <description>roll-up summary field that sum up</description>
+    <externalId>false</externalId>
+    <label>Project Technology sum</label>
+    <summarizedField>Project_Technology__c.Average_Rating__c</summarizedField>
+    <summaryForeignKey>Project_Technology__c.Technology__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
